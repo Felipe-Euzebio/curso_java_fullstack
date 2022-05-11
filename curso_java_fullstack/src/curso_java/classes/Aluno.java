@@ -137,6 +137,14 @@ public class Aluno {
 		}
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", nomeResponsavel=" + nomeResponsavel
+				+ ", instituicaoEnsino=" + instituicaoEnsino + ", serie=" + serie + ", idade=" + idade + ", matricula="
+				+ matricula + ", dataNascimento=" + dataNascimento + ", av1=" + av1 + ", av2=" + av2 + ", avd=" + avd
+				+ "]";
+	}
 	
 	
 }
