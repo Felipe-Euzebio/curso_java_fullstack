@@ -4,15 +4,10 @@ import java.util.Date;
 
 public class Aluno {
 	
-	String nome;
-	int idade;
+	String nome, rg, cpf, nomeResponsavel, instituicaoEnsino, serie;
+	int idade, matricula;
 	Date dataNascimento;
-	String rg;
-	String cpf;
-	String nomeResponsavel;
-	int matricula;
-	String instituicaoEnsino;
-	String serie;
+	double av1, av2, avd;
 	
 	/*
 	public Aluno(String nome, int idade, String nomeResponsavel, int matricula) {
@@ -23,6 +18,30 @@ public class Aluno {
 		this.matricula = matricula;
 	}
 	*/
+	
+	public double getAv1() {
+		return av1;
+	}
+
+	public void setAv1(double av1) {
+		this.av1 = av1;
+	}
+
+	public double getAv2() {
+		return av2;
+	}
+
+	public void setAv2(double av2) {
+		this.av2 = av2;
+	}
+
+	public double getAvd() {
+		return avd;
+	}
+
+	public void setAvd(double avd) {
+		this.avd = avd;
+	}
 
 	public String getNome() {
 		return nome;
@@ -96,7 +115,30 @@ public class Aluno {
 		this.serie = serie;
 	}
 	
+	//------------------------------------------------------------------------------------//
+	
+	// Metódo de média de notas
+	public double getMediaNota() {
+		return (av1 + av2 + avd) / 3;
+	}
+	
+	
+	// Método que retorna true para aprovado e false para reprovado
+	public boolean getAlunoStatus() {
+		
+		double media = this.getMediaNota();
+		
+		if (media >= 6.0) {
+			return true;
 			
+		} else {
+			return false;
+			
+		}
+		
+	}
+	
+	
 }
 
 
