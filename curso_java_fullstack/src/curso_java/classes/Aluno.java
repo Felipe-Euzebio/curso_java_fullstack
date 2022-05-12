@@ -1,13 +1,14 @@
 package curso_java.classes;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Aluno {
 	
 	String nome, rg, cpf, nomeResponsavel, instituicaoEnsino, serie;
 	int idade, matricula;
 	Date dataNascimento;
-	double av1, av2, avd;
+	Disciplina disciplina = new Disciplina();
 	
 	/*
 	public Aluno(String nome, int idade, String nomeResponsavel, int matricula) {
@@ -19,28 +20,15 @@ public class Aluno {
 	}
 	*/
 	
-	public double getAv1() {
-		return av1;
+	//------------------------------------------------------------------------------------//
+	// Getters e Setters
+	
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
-	public void setAv1(double av1) {
-		this.av1 = av1;
-	}
-
-	public double getAv2() {
-		return av2;
-	}
-
-	public void setAv2(double av2) {
-		this.av2 = av2;
-	}
-
-	public double getAvd() {
-		return avd;
-	}
-
-	public void setAvd(double avd) {
-		this.avd = avd;
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 
 	public String getNome() {
@@ -116,14 +104,15 @@ public class Aluno {
 	}
 	
 	//------------------------------------------------------------------------------------//
-	
 	// Metódo de média de notas
+	
 	public double getMediaNota() {
-		return (av1 + av2 + avd) / 3;
+		return (disciplina.getNota1() + disciplina.getNota2() + disciplina.getNota3()) / 3;
 	}
 	
 	
 	// Método que retorna true para aprovado e false para reprovado
+	
 	public boolean getAlunoStatus() {
 		
 		double media = this.getMediaNota();
@@ -138,14 +127,39 @@ public class Aluno {
 		
 	}
 
+	//------------------------------------------------------------------------------------//
+	
+	// Método toString()
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", nomeResponsavel=" + nomeResponsavel
-				+ ", instituicaoEnsino=" + instituicaoEnsino + ", serie=" + serie + ", idade=" + idade + ", matricula="
-				+ matricula + ", dataNascimento=" + dataNascimento + ", av1=" + av1 + ", av2=" + av2 + ", avd=" + avd
-				+ "]";
+		return "Aluno [" + (nome != null ? "nome=" + nome + ", " : "") + (rg != null ? "rg=" + rg + ", " : "")
+				+ (cpf != null ? "cpf=" + cpf + ", " : "")
+				+ (nomeResponsavel != null ? "nomeResponsavel=" + nomeResponsavel + ", " : "")
+				+ (instituicaoEnsino != null ? "instituicaoEnsino=" + instituicaoEnsino + ", " : "")
+				+ (serie != null ? "serie=" + serie + ", " : "") + "idade=" + idade + ", matricula=" + matricula + ", "
+				+ (dataNascimento != null ? "dataNascimento=" + dataNascimento + ", " : "")
+				+ (disciplina != null ? "disciplina=" + disciplina : "") + "]";
 	}
+
+	//------------------------------------------------------------------------------------//
 	
+	// Métodos equals() e hashCode()
+	@Override
+	public int hashCode() {
+		return Objects.hash(cpf, nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aluno other = (Aluno) obj;
+		return Objects.equals(cpf, other.cpf) && Objects.equals(nome, other.nome);
+	}
 	
 }
 

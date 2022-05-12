@@ -11,18 +11,18 @@ public class MinhaClasse {
 		// Aluno alunoTeste = new Aluno("Felipe", 19, "Rômulo", 2021);
 		
 		String nome = JOptionPane.showInputDialog("Nome do aluno: ");
-		String av1 = JOptionPane.showInputDialog("Nota AV1 do aluno: ");
-		String av2 = JOptionPane.showInputDialog("Nota AV2 do aluno: ");
-		String avd = JOptionPane.showInputDialog("Nota AVD do aluno: ");
+		String nota1 = JOptionPane.showInputDialog("Nota AV1 do aluno: ");
+		String nota2 = JOptionPane.showInputDialog("Nota AV2 do aluno: ");
+		String nota3 = JOptionPane.showInputDialog("Nota AVD do aluno: ");
 		
 		Aluno aluno1 = new Aluno();
 		
 		aluno1.setNome(nome);
 		
 		// Transformando o valor gravado como string em double
-		aluno1.setAv1(Double.parseDouble(av1));
-		aluno1.setAv2(Double.parseDouble(av2));
-		aluno1.setAvd(Double.parseDouble(avd));
+		aluno1.getDisciplina().setNota1(Double.parseDouble(nota1));
+		aluno1.getDisciplina().setNota2(Double.parseDouble(nota2));
+		aluno1.getDisciplina().setNota3(Double.parseDouble(nota3));
 		
 		/*
 		System.out.println("Aluno 1: " + aluno1.getNome());
