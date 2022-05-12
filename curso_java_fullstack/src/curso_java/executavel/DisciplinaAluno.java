@@ -3,6 +3,7 @@ package curso_java.executavel;
 import javax.swing.JOptionPane;
 
 import curso_java.classes.Aluno;
+import curso_java.classes.Disciplina;
 
 public class DisciplinaAluno {
 
@@ -12,31 +13,53 @@ public class DisciplinaAluno {
 		
 		String nome = JOptionPane.showInputDialog("Nome do aluno: ");
 		
-		String disciplina1 = JOptionPane.showInputDialog("Disciplina 1 do aluno: ");
-		String nota1 = JOptionPane.showInputDialog("Nota 1 do aluno: ");
+		String disciplinaA = JOptionPane.showInputDialog("Disciplina 1 do aluno: ");
+		String notaA = JOptionPane.showInputDialog("Nota 1 do aluno: ");
 		
-		String disciplina2 = JOptionPane.showInputDialog("Disciplina 2 do aluno: ");
-		String nota2 = JOptionPane.showInputDialog("Nota 2 do aluno: ");
+		String disciplinaB = JOptionPane.showInputDialog("Disciplina 2 do aluno: ");
+		String notaB = JOptionPane.showInputDialog("Nota 2 do aluno: ");
 		
-		String disciplina3 = JOptionPane.showInputDialog("Disciplina 3 do aluno: ");
-		String nota3 = JOptionPane.showInputDialog("Nota 3 do aluno: ");
+		String disciplinaC = JOptionPane.showInputDialog("Disciplina 3 do aluno: ");
+		String notaC = JOptionPane.showInputDialog("Nota 3 do aluno: ");
 		
-		Aluno aluno = new Aluno();
+		Aluno aluno1 = new Aluno();
 		
-		aluno.setNome(nome);
+		aluno1.setNome(nome);
 		
-		aluno.getDisciplina().setDisciplina1(disciplina1);
-		aluno.getDisciplina().setDisciplina2(disciplina2);
-		aluno.getDisciplina().setDisciplina3(disciplina3);
+		//----------------------------------//
+		Disciplina disciplina1 = new Disciplina();
+		//----------------------------------//
 		
-		aluno.getDisciplina().setNota1(Double.parseDouble(nota1));
-		aluno.getDisciplina().setNota2(Double.parseDouble(nota2));
-		aluno.getDisciplina().setNota3(Double.parseDouble(nota3));
+		disciplina1.setDisciplina(disciplinaA);
+		disciplina1.setNota(Double.parseDouble(notaA));
 		
-		System.out.println(aluno);
-		System.out.println("Media: " + aluno.getMediaNota());
-		System.out.println("Resultado: " + (aluno.getAlunoStatus() ? "Aprovado!" : "Reprovado!"));
-
+		// Adicionando o objeto disciplina na lista de disciplinas da classe Aluno
+		aluno1.getDisciplinas().add(disciplina1);
+		
+		//----------------------------------//
+		Disciplina disciplina2 = new Disciplina();
+		//----------------------------------//
+		
+		disciplina2.setDisciplina(disciplinaB);
+		disciplina2.setNota(Double.parseDouble(notaB));
+		
+		aluno1.getDisciplinas().add(disciplina2);
+		
+		//----------------------------------//
+		Disciplina disciplina3 = new Disciplina();
+		//----------------------------------//
+		
+		disciplina3.setDisciplina(disciplinaC);
+		disciplina3.setNota(Double.parseDouble(notaC));
+		
+		aluno1.getDisciplinas().add(disciplina3);
+		
+		/* ------------------------------------------------------------------- */
+				
+		System.out.println(aluno1);
+		System.out.println("Media: " + aluno1.getMediaNota());
+		System.out.println("Resultado: " + (aluno1.getAlunoStatus() ? "Aprovado!" : "Reprovado!"));
+		
 	}
 
 }

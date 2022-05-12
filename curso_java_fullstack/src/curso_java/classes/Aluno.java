@@ -1,6 +1,8 @@
 package curso_java.classes;
 
 import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Aluno {
@@ -8,7 +10,7 @@ public class Aluno {
 	String nome, rg, cpf, nomeResponsavel, instituicaoEnsino, serie;
 	int idade, matricula;
 	Date dataNascimento;
-	Disciplina disciplina = new Disciplina();
+	List<Disciplina> disciplinas = new ArrayList<Disciplina>();		// Criando uma lista para armazenar objetos da classe Disciplina.
 	
 	/*
 	public Aluno(String nome, int idade, String nomeResponsavel, int matricula) {
@@ -23,12 +25,12 @@ public class Aluno {
 	//------------------------------------------------------------------------------------//
 	// Getters e Setters
 	
-	public Disciplina getDisciplina() {
-		return disciplina;
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
 	}
-
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 
 	public String getNome() {
@@ -107,7 +109,16 @@ public class Aluno {
 	// Metódo de média de notas
 	
 	public double getMediaNota() {
-		return (disciplina.getNota1() + disciplina.getNota2() + disciplina.getNota3()) / 3;
+		
+		double somaNotas = 0.0;
+		
+		for (Disciplina disciplina : disciplinas) {
+			somaNotas += disciplina.getNota();
+			
+		}
+		
+		return somaNotas / disciplinas.size();
+		
 	}
 	
 	
@@ -130,6 +141,7 @@ public class Aluno {
 	//------------------------------------------------------------------------------------//
 	
 	// Método toString()
+	
 	@Override
 	public String toString() {
 		return "Aluno [" + (nome != null ? "nome=" + nome + ", " : "") + (rg != null ? "rg=" + rg + ", " : "")
@@ -138,12 +150,13 @@ public class Aluno {
 				+ (instituicaoEnsino != null ? "instituicaoEnsino=" + instituicaoEnsino + ", " : "")
 				+ (serie != null ? "serie=" + serie + ", " : "") + "idade=" + idade + ", matricula=" + matricula + ", "
 				+ (dataNascimento != null ? "dataNascimento=" + dataNascimento + ", " : "")
-				+ (disciplina != null ? "disciplina=" + disciplina : "") + "]";
+				+ (disciplinas != null ? "disciplinas=" + disciplinas : "") + "]";
 	}
-
-	//------------------------------------------------------------------------------------//
 	
+	//------------------------------------------------------------------------------------//
+
 	// Métodos equals() e hashCode()
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(cpf, nome);
