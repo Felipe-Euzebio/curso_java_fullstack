@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import curso_java.classes.Aluno;
 import curso_java.classes.Disciplina;
 
-public class DisciplinaAluno3 {
+public class DisciplinaAluno4 {
 
 	public static void main(String[] args) {
 		
@@ -67,11 +67,23 @@ public class DisciplinaAluno3 {
 				
 		for (Aluno aluno : alunos) {
 			
-			System.out.println(aluno);
-			System.out.println("Media: " + aluno.getMediaNota());
-			//System.out.println("Resultado: " + (aluno1.getAlunoStatus() ? "Aprovado!" : "Reprovado!"));
-			System.out.println("Resultado: " + (aluno.getAlunoStatusRecuperacao()));
-			System.out.println("------------------------------------------------------------------------------");
+			int opcao = JOptionPane.showConfirmDialog(null, "Deseja procurar por algum aluno?");
+			
+			if (opcao == 0) {
+				
+				String procurarAluno = JOptionPane.showInputDialog("Qual o nome do aluno?");
+				
+				if (aluno.getNome().equalsIgnoreCase(procurarAluno)) {
+					
+					System.out.println(aluno);
+					System.out.println("Media: " + aluno.getMediaNota());
+					//System.out.println("Resultado: " + (aluno1.getAlunoStatus() ? "Aprovado!" : "Reprovado!"));
+					System.out.println("Resultado: " + (aluno.getAlunoStatusRecuperacao()));
+					System.out.println("------------------------------------------------------------------------------");
+				
+				}
+				
+			} 
 			
 		}
 		
