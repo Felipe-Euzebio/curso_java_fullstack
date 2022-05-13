@@ -19,12 +19,13 @@ public class MinhaClasse {
 		
 		aluno1.setNome(nome);
 		
+		/*
 		// Transformando o valor gravado como string em double
 		aluno1.getDisciplina().setNota1(Double.parseDouble(nota1));
 		aluno1.getDisciplina().setNota2(Double.parseDouble(nota2));
 		aluno1.getDisciplina().setNota3(Double.parseDouble(nota3));
 		
-		/*
+
 		System.out.println("Aluno 1: " + aluno1.getNome());
 		
 		System.out.println("AV1: " + aluno1.getAv1());
