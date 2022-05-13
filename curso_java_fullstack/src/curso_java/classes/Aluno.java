@@ -137,6 +137,26 @@ public class Aluno {
 		}
 		
 	}
+	
+	public String getAlunoStatusRecuperacao() {
+		
+		double media = this.getMediaNota();
+		
+		if (media >= 5.0) {
+			if (media >= 6.0) {
+				return "Aprovado!";
+				
+			} else {
+				return "Em recuperação...";
+				
+			}
+			
+		} else {
+			return "Reprovado";
+			
+		}
+		
+	}
 
 	//------------------------------------------------------------------------------------//
 	
