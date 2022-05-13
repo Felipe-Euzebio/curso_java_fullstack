@@ -23,7 +23,7 @@ public class Aluno {
 	*/
 	
 	//------------------------------------------------------------------------------------//
-	// Getters e Setters //
+	// Getters e Setters 
 	
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
