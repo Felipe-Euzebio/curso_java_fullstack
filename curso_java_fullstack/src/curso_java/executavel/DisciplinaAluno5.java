@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import curso_java.classes.Aluno;
 import curso_java.classes.Disciplina;
 
-public class DisciplinaAluno4 {
+public class DisciplinaAluno5 {
 
 	public static void main(String[] args) {
 		
@@ -65,39 +65,31 @@ public class DisciplinaAluno4 {
 		
 		/* ------------------------------------------------------------------- */
 				
-		for (Aluno aluno : alunos) {
+		for (int pos = 0; pos < alunos.size(); pos++) {
 			
-			String procurarAluno = JOptionPane.showInputDialog("Digite o nome do aluno que deseja remover (opcional):");
+			Aluno aluno = alunos.get(pos);
 			
-			if (aluno.getNome().equalsIgnoreCase(procurarAluno)) {
+			System.out.println("Aluno: " + aluno.getNome());
+			System.out.println("Media: " + aluno.getMediaNota());
+			System.out.println("Resultado: " + (aluno.getAlunoStatusRecuperacao()));
+			System.out.println("------------------------------------------------------------------------------");
+			
+			for (int posd = 0; posd < aluno.getDisciplinas().size(); posd++) {
 				
-				alunos.remove(aluno);
-				break;
-				
-				
-			} else {
-				
-				System.out.println(aluno);
-				System.out.println("Media: " + aluno.getMediaNota());
-				//System.out.println("Resultado: " + (aluno1.getAlunoStatus() ? "Aprovado!" : "Reprovado!"));
-				System.out.println("Resultado: " + (aluno.getAlunoStatusRecuperacao()));
-				System.out.println("------------------------------------------------------------------------------");
+				Disciplina disciplina = aluno.getDisciplinas().get(posd);
+				System.out.println("Matéria: " + disciplina.getDisciplina());
+				System.out.println("Nota: " + disciplina.getNota());
 				
 			}
-					
-		}
-		
-		for (Aluno aluno: alunos) {
 			
-			System.out.println("Alunos que sobraram na lista: ");
-			System.out.println(aluno.getNome());
-			System.out.println("Suas materias são: ");
-			
-			for (Disciplina disciplina: aluno.getDisciplinas()) {
+			/*
+			for (Disciplina disciplina : aluno.getDisciplinas()) {
 				
-				System.out.println(disciplina.getDisciplina());
+				System.out.println("Matéria: " + disciplina.getDisciplina());
+				System.out.println("Nota: " + disciplina.getNota());
 				
 			}
+			*/
 			
 		}
 		
