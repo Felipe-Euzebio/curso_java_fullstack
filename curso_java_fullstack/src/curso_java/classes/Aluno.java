@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import curso_java.constantes.StatusAluno;
+
 public class Aluno {
 	
 	String nome, rg, cpf, nomeResponsavel, instituicaoEnsino, serie;
@@ -144,15 +146,15 @@ public class Aluno {
 		
 		if (media >= 5.0) {
 			if (media >= 6.0) {
-				return "Aprovado!";
+				return StatusAluno.APROVADO;
 				
 			} else {
-				return "Em recuperação...";
+				return StatusAluno.RECUPERACAO;
 				
 			}
 			
 		} else {
-			return "Reprovado";
+			return StatusAluno.REPROVADO;
 			
 		}
 		

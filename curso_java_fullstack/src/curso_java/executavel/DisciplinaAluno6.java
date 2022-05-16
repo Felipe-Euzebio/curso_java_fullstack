@@ -1,18 +1,24 @@
 package curso_java.executavel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import curso_java.classes.Aluno;
 import curso_java.classes.Disciplina;
+import curso_java.constantes.StatusAluno;
 
-public class DisciplinaAluno5 {
+public class DisciplinaAluno6 {
 
 	public static void main(String[] args) {
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();
+		
+		List<Aluno> alunosAprovados = new ArrayList<Aluno>();
+		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
+		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
 		
 		for (int qtd = 1; qtd <= 2; qtd++) {
 		
@@ -64,49 +70,43 @@ public class DisciplinaAluno5 {
 		}
 		
 		/* ------------------------------------------------------------------- */
-				
-		for (int pos = 0; pos < alunos.size(); pos++) {
+		
+		for (Aluno aluno : alunos) {
 			
-			Aluno aluno = alunos.get(pos);
-			
-			if (aluno.getNome().equalsIgnoreCase("felipe")) {
+			if (aluno.getAlunoStatusRecuperacao().equalsIgnoreCase(StatusAluno.APROVADO)) {
 				
-				Aluno trocarNome = new Aluno();
-				trocarNome.setNome("Aluno foi trocado.");
+				alunosAprovados.add(aluno);
 				
-				Disciplina trocarDisciplina = new Disciplina();
-				trocarDisciplina.setDisciplina("Matemática");
-				trocarDisciplina.setNota(10.0);
+			} else if (aluno.getAlunoStatusRecuperacao().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
 				
-				aluno.getDisciplinas().add(trocarDisciplina);
+				alunosRecuperacao.add(aluno);
 				
-				alunos.set(pos, trocarNome);
-				aluno = alunos.get(pos);
+			} else {
+				
+				alunosReprovados.add(aluno);
 				
 			}
 			
-			System.out.println("Aluno: " + aluno.getNome());
-			System.out.println("Media: " + aluno.getMediaNota());
-			System.out.println("Resultado: " + (aluno.getAlunoStatusRecuperacao()));
-			System.out.println("------------------------------------------------------------------------------");
+		}
+		
+		System.out.println("-------------------- Lista dos Aprovados -------------------------");
+		for (Aluno aluno : alunosAprovados) {
 			
-			for (int posd = 0; posd < aluno.getDisciplinas().size(); posd++) {
-				
-				Disciplina disciplina = aluno.getDisciplinas().get(posd);
-				
-				System.out.println("Matéria: " + disciplina.getDisciplina());
-				System.out.println("Nota: " + disciplina.getNota());
-				
-			}
+			System.out.println("Resultado: " + aluno.getAlunoStatusRecuperacao() + "com média de: " + aluno.getMediaNota());
 			
-			/*
-			for (Disciplina disciplina : aluno.getDisciplinas()) {
-				
-				System.out.println("Matéria: " + disciplina.getDisciplina());
-				System.out.println("Nota: " + disciplina.getNota());
-				
-			}
-			*/
+		}
+		
+		System.out.println("-------------------- Lista dos Recuperação -------------------------");
+		for (Aluno aluno : alunosRecuperacao) {
+			
+			System.out.println("Resultado: " + aluno.getAlunoStatusRecuperacao() + "com média de: " + aluno.getMediaNota());
+			
+		}
+		
+		System.out.println("-------------------- Lista dos Reprovados -------------------------");
+		for (Aluno aluno : alunosReprovados) {
+			
+			System.out.println("Resultado: " + aluno.getAlunoStatusRecuperacao() + "com média de: " + aluno.getMediaNota());
 			
 		}
 		
