@@ -182,4 +182,27 @@ public class Aluno extends Pessoa{
 
 	//------------------------------------------------------------------------------------//	
 	
+	@Override
+	public String toString() {
+		return "Aluno [" + (dataMatricula != null ? "dataMatricula=" + dataMatricula + ", " : "")
+				+ (serieMatriculado != null ? "serieMatriculado=" + serieMatriculado + ", " : "")
+				+ (instituicaoEnsino != null ? "instituicaoEnsino=" + instituicaoEnsino + ", " : "") + "matricula="
+				+ matricula + ", " + (disciplinas != null ? "disciplinas=" + disciplinas + ", " : "")
+				+ (nome != null ? "nome=" + nome + ", " : "") + (rg != null ? "rg=" + rg + ", " : "")
+				+ (cpf != null ? "cpf=" + cpf + ", " : "") + (nomePai != null ? "nomePai=" + nomePai + ", " : "")
+				+ (nomeMae != null ? "nomeMae=" + nomeMae + ", " : "") + "idade=" + idade + ", "
+				+ (dataNascimento != null ? "dataNascimento=" + dataNascimento : "") + "]";
+	}
+	
+	// Identifica método sobreescrito
+	@Override
+	public boolean pessoaMaiorIdade() {
+		// TODO Auto-generated method stub
+		return super.pessoaMaiorIdade();
+	}
+	
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "Você é maior de idade." : "Ops! Você não é maior de idade.";
+	}
+	
 }

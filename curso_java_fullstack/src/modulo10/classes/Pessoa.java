@@ -2,6 +2,8 @@ package modulo10.classes;
 
 import java.util.Date;
 
+// Superclasse
+
 public class Pessoa {
 
 	protected String nome, rg, cpf, nomePai, nomeMae;
@@ -61,6 +63,10 @@ public class Pessoa {
 	
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+	
+	public boolean pessoaMaiorIdade() {
+		return idade >= 18;
 	}
 
 	//------------------------ Método toString() ------------------------//
