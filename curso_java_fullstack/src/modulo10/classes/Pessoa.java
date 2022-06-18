@@ -4,11 +4,14 @@ import java.util.Date;
 
 // Superclasse
 
-public class Pessoa {
+public abstract class Pessoa {
 
 	protected String nome, rg, cpf, nomePai, nomeMae;
 	protected int idade;
 	protected Date dataNascimento;
+	
+	// Método abstrato da superclasse — é obrigatória para todas as subclasses
+	public abstract double salario();
 	
 	public String getNome() {
 		return nome;

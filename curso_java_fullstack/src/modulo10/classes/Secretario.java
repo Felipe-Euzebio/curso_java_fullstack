@@ -41,4 +41,10 @@ public class Secretario extends Pessoa{
 				+ (dataNascimento != null ? "dataNascimento=" + dataNascimento : "") + "]";
 	}
 
+	@Override
+	public double salario() {
+		// TODO Auto-generated method stub
+		return 1800.80 * 0.9;
+	}
+
 }
