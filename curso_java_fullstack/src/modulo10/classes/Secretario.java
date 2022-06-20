@@ -1,10 +1,15 @@
 package modulo10.classes;
 
-public class Secretario extends Pessoa{
+import modulo10.interfaces.PermitirAcesso;
+
+public class Secretario extends Pessoa implements PermitirAcesso{
 
 	private String registro;
 	private String nivelCargo;
 	private String experiencia;
+	
+	private String login;
+	private String senha;
 	
 	public String getRegistro() {
 		return registro;
@@ -30,6 +35,22 @@ public class Secretario extends Pessoa{
 		this.experiencia = experiencia;
 	}
 
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	@Override
 	public String toString() {
 		return "Secretario [" + (registro != null ? "registro=" + registro + ", " : "")
@@ -45,6 +66,12 @@ public class Secretario extends Pessoa{
 	public double salario() {
 		// TODO Auto-generated method stub
 		return 1800.80 * 0.9;
+	}
+
+	// Método do contrato de autenticação
+	@Override
+	public boolean autenticar() {
+		return login.equals("admin") && senha.equals("admin");	// Retorna true caso o login e senha sejam igual à "admin"
 	}
 
 }
