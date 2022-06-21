@@ -10,6 +10,7 @@ import curso_java.classes.Aluno;
 import curso_java.classes.Disciplina;
 import curso_java.constantes.StatusAluno;
 import modulo10.classes.Secretario;
+import modulo10.interfaces.PermitirAcesso;
 
 public class DisciplinaAlunoFinal {
 
@@ -18,11 +19,11 @@ public class DisciplinaAlunoFinal {
 		String login = JOptionPane.showInputDialog("Informe o login:");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
 		
-		Secretario secretario = new Secretario();
-		secretario.setLogin(login);
-		secretario.setSenha(senha);
+		//PermitirAcesso secretario = new Secretario();
 		
-		if (!secretario.autenticar()) { 	// Se o retorn não for true, não acessa o sistema
+		//if (!secretario.autenticar(login, senha)) {
+		
+		if (!new Secretario().autenticar(login, senha)) { 	// Se o retorn não for true, não acessa o sistema
 			
 			String msg = "Acesso negado! Tente novamente.";
 			JOptionPane.showMessageDialog(null, msg);
