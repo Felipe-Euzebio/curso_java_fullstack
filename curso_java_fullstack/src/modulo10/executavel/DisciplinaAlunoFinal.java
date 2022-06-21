@@ -9,7 +9,9 @@ import javax.swing.JOptionPane;
 import curso_java.classes.Aluno;
 import curso_java.classes.Disciplina;
 import curso_java.constantes.StatusAluno;
+import modulo10.classes.Diretor;
 import modulo10.classes.Secretario;
+import modulo10.classes_auxiliares.FuncaoAutenticacao;
 import modulo10.interfaces.PermitirAcesso;
 
 public class DisciplinaAlunoFinal {
@@ -21,14 +23,17 @@ public class DisciplinaAlunoFinal {
 		
 		//PermitirAcesso secretario = new Secretario();
 		
+		PermitirAcesso acessoDiretor = new Diretor(login, senha); 
+		//PermitirAcesso acessoSecretario = new Secretario(login, senha); 
+		
 		//if (!secretario.autenticar(login, senha)) {
 		
-		if (!new Secretario().autenticar(login, senha)) { 	// Se o retorn não for true, não acessa o sistema
+		if (!new FuncaoAutenticacao(acessoDiretor).autenticar()) { 	// Vou travar o contrato para autorizar SOMENTE quem realmente tem o contrato 100% legítimo
 			
 			String msg = "Acesso negado! Tente novamente.";
 			JOptionPane.showMessageDialog(null, msg);
 			main(args);
-			
+		
 		}
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();

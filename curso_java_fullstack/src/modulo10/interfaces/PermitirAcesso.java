@@ -6,4 +6,6 @@ public interface PermitirAcesso {
 	//public boolean autenticar();
 	public boolean autenticar(String login, String senha);// Declaração do método
 	
+	public boolean autenticar();
+	
 }

@@ -1,10 +1,24 @@
 package modulo10.classes;
 
-public class Diretor extends Pessoa{
+import modulo10.interfaces.PermitirAcesso;
+
+public class Diretor extends Pessoa implements PermitirAcesso{
 
 	private String registroEducacao;
 	private int tempoDirecao;
 	private String titulacao;
+	
+	private String login;
+	private String senha;
+	
+	public Diretor (String login, String senha) {
+		this.login = login;
+		this.senha = senha;
+	}
+	
+	public Diretor ( ) {
+		
+	}
 	
 	public String getRegistroEducacao() {
 		return registroEducacao;
@@ -45,5 +59,18 @@ public class Diretor extends Pessoa{
 		// TODO Auto-generated method stub
 		return 3900.78;
 	}	
+	
+	@Override
+	public boolean autenticar(String login, String senha) {
+		//return login.equals("admin") && senha.equals("admin");
+		this.login = login;
+		this.senha = senha;
+		return autenticar();
+	}
+
+	@Override
+	public boolean autenticar() {
+		return login.equals("diretor") && senha.equals("diretor");
+	}
 	
 }
