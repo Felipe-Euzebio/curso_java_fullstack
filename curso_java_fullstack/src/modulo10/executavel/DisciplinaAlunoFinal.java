@@ -24,7 +24,7 @@ public class DisciplinaAlunoFinal {
 		
 		try {
 			
-			lerArquivo();
+			lerArquivoA();
 			
 			String login = JOptionPane.showInputDialog("Informe o login:");
 			String senha = JOptionPane.showInputDialog("Informe a senha:");
@@ -180,7 +180,7 @@ public class DisciplinaAlunoFinal {
 		
 	}
 	
-	public static void lerArquivo() throws ExcecaoProcessarNota {
+	public static void lerArquivoA() throws ExcecaoProcessarNota {
 		
 		try {
 			
@@ -192,6 +192,13 @@ public class DisciplinaAlunoFinal {
 			throw new ExcecaoProcessarNota(e.getMessage());
 			
 		}
+		
+	}
+	
+	public static void lerArquivoB() throws FileNotFoundException {
+		
+		File file = new File("C:\\Users\\Felipe Euzébio\\git\\repository\\curso_java_fullstack\\src\\modulo11\\executavel\\arquivo.txt");
+		Scanner scanner = new Scanner(file);
 		
 	}
 
