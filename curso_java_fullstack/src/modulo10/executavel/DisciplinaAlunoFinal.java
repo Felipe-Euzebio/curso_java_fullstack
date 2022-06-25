@@ -1,8 +1,10 @@
 package modulo10.executavel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -19,6 +21,9 @@ public class DisciplinaAlunoFinal {
 	public static void main(String[] args) {
 		
 		try {
+			
+			File file = new File("C:\\Users\\Felipe Euzébio\\git\\repository\\curso_java_fullstack\\src\\modulo10\\executavel\\arquivo.txt");
+			Scanner scanner = new Scanner(file);
 			
 			String login = JOptionPane.showInputDialog("Informe o login:");
 			String senha = JOptionPane.showInputDialog("Informe a senha:");
@@ -136,7 +141,7 @@ public class DisciplinaAlunoFinal {
 				
 			}
 			
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			
 			StringBuilder output = new StringBuilder();
 			
@@ -157,7 +162,20 @@ public class DisciplinaAlunoFinal {
 			// Imprime o erro no console Java
 			e.printStackTrace();
 			
-		} 
+		} catch (NullPointerException e) {
+			
+			JOptionPane.showMessageDialog(null, "NullPointerException: \n" + e.getClass());
+			
+		} catch (Exception e) { 	// Captura todas as exceções que não prevemos.
+			
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro inesperado: \n" + e.getClass());
+			
+		} finally { 	// Sempre é executado, ocorrendo erros ou não. Usado quando se precisa executar um processo acontecendo um erro ou não
+			
+			JOptionPane.showMessageDialog(null, "Encerrando...");
+			
+		}
 		
 	}
 
