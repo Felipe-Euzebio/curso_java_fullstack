@@ -1,6 +1,7 @@
 package modulo10.executavel;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,7 @@ import curso_java.constantes.StatusAluno;
 import modulo10.classes.Diretor;
 import modulo10.classes.Secretario;
 import modulo10.classes_auxiliares.FuncaoAutenticacao;
+import modulo10.excecoes.ExcecaoProcessarNota;
 import modulo10.interfaces.PermitirAcesso;
 
 public class DisciplinaAlunoFinal {
@@ -22,8 +24,7 @@ public class DisciplinaAlunoFinal {
 		
 		try {
 			
-			File file = new File("C:\\Users\\Felipe Euzébio\\git\\repository\\curso_java_fullstack\\src\\modulo10\\executavel\\arquivo.txt");
-			Scanner scanner = new Scanner(file);
+			lerArquivo();
 			
 			String login = JOptionPane.showInputDialog("Informe o login:");
 			String senha = JOptionPane.showInputDialog("Informe a senha:");
@@ -166,14 +167,29 @@ public class DisciplinaAlunoFinal {
 			
 			JOptionPane.showMessageDialog(null, "NullPointerException: \n" + e.getClass());
 			
-		} catch (Exception e) { 	// Captura todas as exceções que não prevemos.
+		} catch (ExcecaoProcessarNota e) { 	// Captura todas as exceções que não prevemos.
 			
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro inesperado: \n" + e.getClass());
+			JOptionPane.showMessageDialog(null, "Erro inesperado: \n" + e.getClass().getName());
 			
 		} finally { 	// Sempre é executado, ocorrendo erros ou não. Usado quando se precisa executar um processo acontecendo um erro ou não
 			
 			JOptionPane.showMessageDialog(null, "Encerrando...");
+			
+		}
+		
+	}
+	
+	public static void lerArquivo() throws ExcecaoProcessarNota {
+		
+		try {
+			
+			File file = new File("C:\\Users\\Felipe Euzébio\\git\\repository\\curso_java_fullstack\\src\\modulo11\\executavel\\arquivo.txt");
+			Scanner scanner = new Scanner(file);
+			
+		} catch (FileNotFoundException e) {
+			
+			throw new ExcecaoProcessarNota(e.getMessage());
 			
 		}
 		
