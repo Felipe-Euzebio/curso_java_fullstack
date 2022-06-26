@@ -58,7 +58,7 @@ public class DisciplinaAlunoFinal {
 				
 				/* ------------------------------------------------------------------- */
 				
-				for (int pos = 1; pos <= 4; pos++) {
+				for (int pos = 1; pos <= 2; pos++) {
 					
 					String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina " + pos + ":");
 					String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina " + pos + ":");
@@ -184,7 +184,7 @@ public class DisciplinaAlunoFinal {
 		
 		try {
 			
-			File file = new File("C:\\Users\\Felipe Euzébio\\git\\repository\\curso_java_fullstack\\src\\modulo11\\executavel\\arquivo.txt");
+			File file = new File("C:\\Users\\Felipe Euzébio\\git\\repository\\curso_java_fullstack\\src\\modulo10\\executavel\\arquivo.txt");
 			Scanner scanner = new Scanner(file);
 			
 		} catch (FileNotFoundException e) {
@@ -197,7 +197,7 @@ public class DisciplinaAlunoFinal {
 	
 	public static void lerArquivoB() throws FileNotFoundException {
 		
-		File file = new File("C:\\Users\\Felipe Euzébio\\git\\repository\\curso_java_fullstack\\src\\modulo11\\executavel\\arquivo.txt");
+		File file = new File("C:\\Users\\Felipe Euzébio\\git\\repository\\curso_java_fullstack\\src\\modulo10\\executavel\\arquivo.txt");
 		Scanner scanner = new Scanner(file);
 		
 	}

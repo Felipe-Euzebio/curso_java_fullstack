@@ -70,7 +70,7 @@ public class Diretor extends Pessoa implements PermitirAcesso{
 
 	@Override
 	public boolean autenticar() {
-		return login.equals("diretor") && senha.equals("diretor");
+		return login.equals("diretor") && senha.equals("123");
 	}
 	
 }
